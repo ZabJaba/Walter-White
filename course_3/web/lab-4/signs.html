@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Дорожные знаки</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.14.1/themes/base/jqueryui.css"
+    />
+  </head>
+  <body>
+    <p>
+      <img class="tooltip" data-hint="Подсказка 1" src="signs/1_1.svg" />
+      <img class="tooltip" data-hint="Подсказка 2" src="signs/1_2.svg" />
+      <img class="tooltip" data-hint="Подсказка 3" src="signs/1_16.svg" />
+      <img class="tooltip" data-hint="Подсказка 4" src="signs/1_17.svg" />
+      <img class="tooltip" data-hint="Подсказка 5" src="signs/1_5.svg" />
+    </p>
+    <p>
+      <img class="tooltip" data-hint="Подсказка 6" src="signs/1_6.svg" />
+      <img class="tooltip" data-hint="Подсказка 7" src="signs/1_7.svg" />
+      <img class="tooltip" data-hint="Подсказка 8" src="signs/1_8.svg" />
+      <img class="tooltip" data-hint="Подсказка 9" src="signs/1_9.svg" />
+      <img class="tooltip" data-hint="Подсказка 10" src="signs/1_10.svg" />
+    </p>
+    <p>
+      <img class="tooltip" data-hint="Подсказка 11" src="signs/1_18.svg" />
+      <img class="tooltip" data-hint="Подсказка 12" src="signs/1_19.svg" />
+      <img class="tooltip" data-hint="Подсказка 13" src="signs/1_13.svg" />
+      <img class="tooltip" data-hint="Подсказка 14" src="signs/1_14.svg" />
+      <img class="tooltip" data-hint="Подсказка 15" src="signs/1_15.svg" />
+    </p>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <style>
+      .tooltip {
+        position: relative;
+      }
+      .tooltip .ui-tooltip {
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 5px;
+        z-index: 1;
+      }
+    </style>
+    <script>
+      $(function () {
+        $(document).tooltip({
+          items: "img",
+          content: function () {
+            var $element = $(this);
+            if ($element.is("img")) {
+              return $element.data("hint");
+            }
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
