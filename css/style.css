@@ -1,0 +1,245 @@
+:root {
+  --color-dark: #1e1e1e;
+  --color-light: #f5f5f5;
+  --color-beige: #e8d5b5;
+  --color-accent: #4a7c59;
+  --color-price: #c0392b;
+  --radius: 16px;
+  --transition: 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Georgia", serif;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.btn--solid {
+  background-color: var(--color-beige);
+  color: var(--color-dark);
+}
+
+.btn--outline {
+  border: 1px solid var(--color-beige);
+  color: var(--color-beige);
+}
+
+#menu {
+  padding: 60px 20px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 40px;
+  background-color: var(--color-dark);
+  color: var(--color-beige);
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav a {
+  color: var(--color-beige);
+  text-decoration: none;
+  margin-right: 20px;
+  transition: color var(--transition);
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.nav a:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.hero {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  color: #fff;
+}
+
+.hero__title {
+  font-size: 64px;
+  color: var(--color-beige);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* text-shadow */
+}
+
+.hero__subtitle {
+  font-size: 22px;
+  margin: 12px 0 24px;
+}
+
+.menu__title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 32px;
+}
+
+.menu__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+}
+
+.card:focus {
+  outline: 2px solid var(--color-accent);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-beige), var(--color-accent));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.card:hover::before,
+.card:focus::before {
+  opacity: 1;
+}
+
+.card__image {
+  overflow: hidden;
+}
+
+.card__image img {
+  display: block;
+  width: 100%;
+  transition: transform var(--transition), filter var(--transition);
+}
+
+.card:hover .card__image img,
+.card:focus .card__image img {
+  transform: scale(1.05);
+  filter: brightness(0.85);
+}
+
+.card__body {
+  padding: 16px 20px 24px;
+}
+
+.card__name {
+  font-size: 20px;
+  margin-bottom: 8px;
+  transition: color var(--transition), text-shadow var(--transition);
+}
+
+.card__price {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-price);
+  transition: transform var(--transition);
+}
+
+.card:hover .card__price,
+.card:focus .card__price {
+  transform: scale(1.1);
+}
+
+.card__desc {
+  font-size: 15px;
+  color: #555;
+}
+
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-beige);
+  text-align: center;
+  padding: 32px 20px;
+}
+
+.footer__logo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.footer__text {
+  margin-bottom: 6px;
+}
+
+.footer__copy {
+  margin-top: 16px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .hero__title {
+    font-size: 40px;
+  }
+  .header {
+    padding: 16px 20px;
+  }
+}
